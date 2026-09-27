@@ -57,18 +57,13 @@ function build(tl, root) {
     { x: 0, y: 0, opacity: 0.90, duration: 0.74, ease: 'power1.inOut', immediateRender: false }, 0.22)
 
   // ── Exit — fires only at the very end, right as ch7 takes over ──────────
-  // Left hand lifts off first and fastest.
-  tl.to(leftHand,
-    { y: () => -window.innerHeight * 0.90, opacity: 0, duration: 0.10, ease: 'power2.in', immediateRender: false }, 0.88)
+  // Both hands rise together in sync at the handoff moment.
+  tl.to([leftHand, rightHand],
+    { y: () => -window.innerHeight * 0.85, opacity: 0, duration: 0.11, ease: 'power2.in', immediateRender: false }, 0.88)
 
-  // Moon exits a beat later — feels like a natural continuation of the upward
-  // drift it has been doing all chapter.
+  // Moon exits on its own pace — slightly later, slightly slower.
   tl.to(moon,
-    { y: () => -window.innerHeight * 1.1, opacity: 0, duration: 0.12, ease: 'power1.in', immediateRender: false }, 0.90)
-
-  // Right hand lingers the longest — clearly desynced from the left.
-  tl.to(rightHand,
-    { y: () => -window.innerHeight * 0.75, opacity: 0, duration: 0.14, ease: 'power2.in', immediateRender: false }, 0.93)
+    { y: () => -window.innerHeight * 1.1, opacity: 0, duration: 0.14, ease: 'power1.in', immediateRender: false }, 0.91)
 }
 
 export function Everything() {
