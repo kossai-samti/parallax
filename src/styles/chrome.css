@@ -1,0 +1,235 @@
+.progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  z-index: var(--z-chrome);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.progress__fill {
+  display: block;
+  height: 100%;
+  width: 100%;
+  transform-origin: 0 50%;
+  transform: scaleX(0);
+  background: linear-gradient(90deg, var(--story-accent), var(--world-glow));
+  box-shadow: 0 0 12px var(--story-accent);
+}
+
+.rail {
+  position: fixed;
+  top: 50%;
+  right: clamp(10px, 1.6vw, 26px);
+  transform: translateY(-50%);
+  z-index: var(--z-chrome);
+  color: var(--story-text);
+}
+
+.rail ol {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.rail button {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 10px;
+  padding: 7px 2px;
+  opacity: 0.4;
+  transition: opacity 0.4s var(--ease);
+}
+
+.rail li.is-active button,
+.rail button:hover,
+.rail button:focus-visible {
+  opacity: 1;
+}
+
+.rail__icon {
+  display: grid;
+  place-items: center;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  border: 1px solid currentColor;
+  transition: transform 0.45s var(--ease), background 0.45s var(--ease);
+}
+
+.rail li.is-active .rail__icon {
+  transform: scale(1.16);
+  background: color-mix(in srgb, currentColor 16%, transparent);
+}
+
+.rail__art {
+  width: 15px;
+  height: 15px;
+  fill: currentColor;
+}
+
+.rail__art--bat .bat__wing,
+.rail__art--bat .bat__body {
+  fill: currentColor;
+}
+
+.rail__art--bat .bat__eye,
+.rail__art--bat .bat__grin {
+  fill: #0b0512;
+  stroke: #0b0512;
+}
+
+.rail__art--mandarin {
+  color: #ff9c33;
+}
+
+.rail__art--frog {
+  color: #8ff0a4;
+}
+
+.rail__art--monster {
+  color: #c084fc;
+}
+
+.rail__art--cat {
+  color: currentColor;
+}
+
+.rail__art--heart {
+  color: #ff6fa6;
+}
+
+.rail__art--gift {
+  color: currentColor;
+}
+
+.rail__num {
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.22em;
+  opacity: 0.7;
+}
+
+.rail__label {
+  position: absolute;
+  right: calc(100% + 10px);
+  white-space: nowrap;
+  font-size: 0.68rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  opacity: 0;
+  transform: translateX(8px);
+  transition: opacity 0.4s var(--ease), transform 0.4s var(--ease);
+  pointer-events: none;
+  text-shadow: 0 1px 12px var(--sky-low);
+}
+
+.rail li.is-active .rail__label,
+.rail button:hover .rail__label {
+  opacity: 0.85;
+  transform: translateX(0);
+}
+
+.hint {
+  position: fixed;
+  left: 50%;
+  bottom: 26px;
+  transform: translateX(-50%);
+  z-index: var(--z-chrome);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  opacity: 0.75;
+}
+
+.hint i {
+  display: block;
+  width: 1px;
+  height: 34px;
+  background: linear-gradient(to bottom, currentColor, transparent);
+  animation: drip 1.9s ease-in-out infinite;
+}
+
+@keyframes drip {
+  0%,
+  100% {
+    transform: scaleY(0.35);
+    transform-origin: 50% 0;
+    opacity: 0.4;
+  }
+  50% {
+    transform: scaleY(1);
+    transform-origin: 50% 0;
+    opacity: 1;
+  }
+}
+
+.footer {
+  position: relative;
+  z-index: var(--z-story);
+  padding: 14svh var(--gut) 12svh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.4rem;
+  text-align: center;
+  color: var(--story-text);
+  background: linear-gradient(to bottom, transparent, var(--sky-low) 40%);
+}
+
+.footer p {
+  font-family: var(--font-display);
+  font-size: clamp(1.05rem, 2.4vw, 1.5rem);
+  max-width: 30ch;
+  opacity: 0.7;
+}
+
+.linkbtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 0.82rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: inherit;
+  opacity: 0.8;
+  transition: opacity 0.35s var(--ease), gap 0.35s var(--ease);
+}
+
+.linkbtn:hover {
+  opacity: 1;
+  gap: 0.95rem;
+}
+
+.linkbtn svg {
+  width: 15px;
+  height: 15px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.6;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.linkbtn--ghost {
+  opacity: 0.5;
+  border-bottom: 1px solid currentColor;
+  padding-bottom: 0.3rem;
+}
+
+@media (max-width: 720px) {
+  .rail__label {
+    display: none;
+  }
+
+  .rail__num {
+    display: none;
+  }
+}

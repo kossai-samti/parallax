@@ -1,0 +1,432 @@
+.world {
+  position: fixed;
+  inset: 0;
+  z-index: var(--z-world);
+  overflow: hidden;
+  background: linear-gradient(180deg, var(--sky-top) 0%, var(--sky-mid) 48%, var(--sky-low) 100%);
+}
+
+/* one <img> per chapter that has a photo wallpaper; the world timeline
+   crossfades their opacity as you scroll between chapters */
+
+.world__walls {
+  position: absolute;
+  inset: 0;
+}
+
+.world__wall {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.is-reduced .world__wall {
+  opacity: 0.5;
+}
+
+.world__halo {
+  position: absolute;
+  left: var(--cel-x, 50%);
+  top: var(--cel-y, 30%);
+  width: calc(var(--cel-size) * var(--cel-scale, 1) * 3.6);
+  aspect-ratio: 1;
+  transform: translate(-50%, -50%);
+  background: radial-gradient(circle, var(--world-glow) 0%, transparent 58%);
+  opacity: 0.5;
+  filter: blur(28px);
+}
+
+.world__celestial {
+  position: absolute;
+  left: var(--cel-x, 50%);
+  top: var(--cel-y, 30%);
+  width: calc(var(--cel-size) * var(--cel-scale, 1));
+  aspect-ratio: 1;
+  transform: translate(-50%, calc(-50% + var(--cel-drop, 0px)));
+}
+
+.cel__disc {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle at 34% 28%,
+    var(--cel-hi) 0%,
+    var(--cel-core) 44%,
+    var(--cel-edge) 80%,
+    transparent 81%
+  );
+}
+
+.cel__bloom {
+  position: absolute;
+  inset: -12%;
+  border-radius: 50%;
+  box-shadow:
+    0 0 90px 24px var(--cel-core),
+    0 0 220px 60px var(--cel-edge);
+  filter: blur(10px);
+}
+
+.cel__art {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+  filter: drop-shadow(0 0 40px var(--cel-edge));
+}
+
+.cel__art--lotus {
+  opacity: 0;
+}
+
+.cel__rays {
+  position: absolute;
+  inset: -160%;
+  mix-blend-mode: screen;
+  background: repeating-conic-gradient(
+    from 0deg,
+    rgba(255, 240, 190, 0.3) 0deg 3deg,
+    transparent 3deg 15deg
+  );
+  mask-image: radial-gradient(circle, #000 12%, transparent 46%);
+}
+
+.cel__ring {
+  position: absolute;
+  inset: -14%;
+  border-radius: 50%;
+  border: 1.5px solid var(--story-accent);
+  box-shadow:
+    0 0 34px var(--story-accent),
+    inset 0 0 34px var(--story-accent);
+}
+
+/* Chapter 3 uses the lotus itself as its center artwork. Hide the old
+   celestial disc and ornamentation so no moon or mandarin styling remains. */
+.world[data-chapter='3'] .world__halo,
+.world[data-chapter='3'] .cel__bloom,
+.world[data-chapter='3'] .cel__rays,
+.world[data-chapter='3'] .cel__ring {
+  display: none;
+}
+
+.world[data-chapter='3'] .cel__disc {
+  border-radius: 0;
+  background: none;
+}
+
+.world[data-chapter='3'] .cel__art {
+  filter: none;
+}
+
+/* Chapter 6 has its own illustrated moon in the foreground composition. */
+.world[data-chapter='6'] .world__halo,
+.world[data-chapter='6'] .world__celestial {
+  display: none;
+}
+
+.cel__peel {
+  position: absolute;
+  inset: 0;
+}
+
+.cel__peel .mandarin {
+  width: 100%;
+  height: 100%;
+}
+
+.cel__peel .mandarin__body,
+.cel__peel .mandarin__leaf,
+.cel__peel .mandarin__stem,
+.cel__peel .mandarin__speck {
+  opacity: 0;
+}
+
+.cel__peel .mandarin__peel-strip {
+  stroke: var(--cel-hi);
+  opacity: 0.75;
+}
+
+/* stars */
+
+.stars {
+  position: absolute;
+  inset: 0;
+}
+
+.star {
+  position: absolute;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 0 6px rgba(255, 255, 255, 0.7);
+  animation-name: twinkle;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+@keyframes twinkle {
+  from {
+    opacity: 0.15;
+    transform: scale(0.7);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1.15);
+  }
+}
+
+/* clouds */
+
+.clouds {
+  position: absolute;
+  inset: 0;
+}
+
+.cloud-band {
+  position: absolute;
+  inset: 0;
+}
+
+.cloud {
+  position: absolute;
+  display: block;
+  height: clamp(40px, 9vmin, 120px);
+  border-radius: 999px;
+  background: radial-gradient(closest-side, rgba(255, 255, 255, 0.16), transparent 72%);
+  filter: blur(14px);
+  animation: drift linear infinite;
+}
+
+.cloud--far .cloud {
+  opacity: 0.5;
+  animation-duration: 90s;
+  animation-delay: -20s;
+}
+
+.cloud--mid .cloud {
+  opacity: 0.65;
+  animation-duration: 58s;
+  animation-delay: -10s;
+}
+
+.cloud--near .cloud {
+  opacity: 0.8;
+  animation-duration: 34s;
+  filter: blur(22px);
+}
+
+@keyframes drift {
+  from {
+    transform: translateX(-30vw);
+  }
+  to {
+    transform: translateX(130vw);
+  }
+}
+
+/* fog */
+
+.world__fog {
+  position: absolute;
+  left: -12%;
+  right: -12%;
+  bottom: 0;
+  height: 44svh;
+  background: linear-gradient(to top, var(--sky-low) 4%, transparent 92%);
+  filter: blur(10px);
+}
+
+/* bats — three depths, deliberately spread across the sky so no two read as
+   a pair. `far` hugs the top-left, `low` sits under the moon, `mid` trails the
+   lower third. Tune with the --x/--y/--s custom properties per breakpoint. */
+
+.world__bats {
+  position: absolute;
+  inset: 0;
+}
+
+.batimg {
+  position: absolute;
+  left: var(--x);
+  top: var(--y);
+  width: var(--s);
+  height: auto;
+  opacity: var(--o, 0.6);
+  transform: translate(-50%, -50%) scaleX(var(--flip, 1));
+  animation: bob var(--dur, 7s) ease-in-out infinite alternate;
+  animation-delay: var(--delay, 0s);
+  filter: drop-shadow(0 18px 26px rgba(0, 0, 0, 0.45));
+}
+
+.batimg--far {
+  --x: 2%;
+  --y: 17%;
+  --s: clamp(56px, 9vmin, 108px);
+  --o: 0.34;
+  --dur: 6.5s;
+  --delay: -2s;
+}
+
+/* the hero cluster owns the bottom centre now, so the middle bat moves into
+   the space it vacated on the left rather than colliding with it */
+.batimg--mid {
+  --x: 14%;
+  --y: 70%;
+  --s: clamp(62px, 12vmin, 132px);
+  --o: 0.5;
+  --flip: -1;
+  --dur: 8s;
+  --delay: -5s;
+}
+
+/* the right-hand bats read as a distant pair, so they have to be noticeably
+   bigger than the small far bat or they disappear into the wallpaper */
+.batimg--low {
+  --x: 90%;
+  --y: 60%;
+  --s: clamp(84px, 16vmin, 200px);
+  --o: 0.5;
+  --dur: 7.2s;
+  --delay: -3.5s;
+}
+
+@keyframes bob {
+  from {
+    margin-top: 1.4%;
+  }
+  to {
+    margin-top: -1.4%;
+  }
+}
+
+.is-reduced .batimg {
+  animation: none;
+}
+
+/* portrait phones are narrow, so the hero bat owns the left column and the
+   whole flock moves to the right of it, clear of the moon (55% / 16%) */
+@media (max-width: 700px) {
+  .batimg--far {
+    --x: 93%;
+    --y: 10%;
+    --s: clamp(44px, 8vmin, 108px);
+  }
+
+  .batimg--mid {
+    --x: 58%;
+    --y: 58%;
+  }
+
+  .batimg--low {
+    --x: 90%;
+    --y: 33%;
+  }
+}
+
+/* particles */
+
+.particles {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.particle {
+  position: absolute;
+  bottom: -8%;
+  display: block;
+  animation-name: floatUp;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+.particle--dust {
+  width: var(--size);
+  height: var(--size);
+  border-radius: 50%;
+  background: #fff;
+  filter: blur(1px);
+}
+
+.particle--spark {
+  width: var(--size);
+  height: var(--size);
+  background: radial-gradient(circle, #fff 0%, transparent 70%);
+}
+
+.particle--petal {
+  width: calc(var(--size) * 0.7);
+  height: calc(var(--size) * 0.45);
+  border-radius: 60% 20% 60% 20%;
+  background: currentColor;
+  opacity: 0.6;
+}
+
+.particle--heart {
+  width: var(--size);
+  height: var(--size);
+  color: currentColor;
+}
+
+.particle--heart .heart {
+  width: 100%;
+  height: 100%;
+  fill: currentColor;
+}
+
+@keyframes floatUp {
+  0% {
+    transform: translate3d(0, 0, 0) rotate(var(--rot));
+  }
+  50% {
+    transform: translate3d(var(--drift), -50vh, 0) rotate(calc(var(--rot) * -1));
+  }
+  100% {
+    transform: translate3d(0, -104vh, 0) rotate(var(--rot));
+  }
+}
+
+/* grain + vignette */
+
+.grain {
+  position: fixed;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23n)'/%3E%3C/svg%3E");
+  opacity: 0.055;
+  mix-blend-mode: overlay;
+  animation: grainShift 1.1s steps(3) infinite;
+}
+
+.grain::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 50% 50%, transparent 52%, rgba(0, 0, 0, 0.34) 100%);
+  mix-blend-mode: multiply;
+  opacity: 0.8;
+}
+
+@keyframes grainShift {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  33% {
+    transform: translate3d(-2%, 1.5%, 0);
+  }
+  66% {
+    transform: translate3d(1.5%, -1%, 0);
+  }
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+}
