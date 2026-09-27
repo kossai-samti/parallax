@@ -1,4 +1,3 @@
-import { STORY } from '../content/story'
 import { Panel } from './Chapter'
 import { scrollToEl } from '../lib/smoothScroll'
 
@@ -23,7 +22,9 @@ export function StoryPanels({ id, className = '' }) {
     { kicker: 'Lorem ipsum', lines: ['Ut enim ad minim veniam.'], body: 'Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.' },
     { kicker: 'Lorem ipsum', lines: ['Duis aute irure dolor in reprehenderit.'], body: 'In voluptate velit esse cillum dolore eu fugiat nulla pariatur.' },
   ]
-  const blocks = id === 'first-meeting' || id === 'falling' ? loremBlocks : STORY[id]
+  // Keep every chapter's story copy in the same Lorem ipsum placeholder state.
+  // Chapter headings and labels live in CHAPTERS and remain unchanged.
+  const blocks = loremBlocks
 
   return blocks.map((block, i) => (
     <Panel key={i} kicker={block.kicker} className={className}>

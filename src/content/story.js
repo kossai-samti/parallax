@@ -1,4 +1,4 @@
-export const SENDER = 'M'
+﻿export const SENDER = 'M'
 export const RECEIVER = 'You'
 
 const bat = {
@@ -170,47 +170,47 @@ export const STORY = {
     {
       kicker: 'Chapter one',
       lines: ['Before you became someone I loved…'],
-      body: 'you were just a girl I had never met.',
+      body: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
     },
     {
       kicker: 'And then',
       lines: ['It was an ordinary day.'],
-      body: 'Put the place, the hour, and the first thing she said here. The real version is always better than the dramatic one.',
+      body: 'Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
     },
     {
       kicker: null,
       lines: ['I had no idea what was starting.'],
-      body: 'To me you were a stranger with a name. That was the whole story.',
+      body: 'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.',
     },
   ],
 
   falling: [
     {
       lines: ['I don’t know exactly when it happened.'],
-      body: 'There was no moment. No music. Nothing clicked and stayed clicked.',
+      body: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam.',
     },
     {
       lines: ['At some point, talking to you stopped feeling ordinary.'],
-      body: 'Same words. Different weight. I started looking forward to it.',
+      body: 'Quis ipsum suspendisse ultrices gravida risus commodo viverra.',
     },
     {
       lines: ['And I realized I was starting to fall for you.'],
-      body: 'And I liked the fall far too much to say anything about it.',
+      body: 'Duis aute irure dolor in reprehenderit in voluptate velit esse.',
     },
   ],
 
   idea: [
     {
       lines: ['Eventually, I realized I couldn’t keep this to myself.'],
-      body: 'Not the feeling. Not one word of it. I had run out of ways to hide it.',
+      body: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit sed posuere.',
     },
     {
       lines: ['So obviously…'],
-      body: 'A long pause. Very suspenseful. Very dramatic.',
+      body: 'Ut labore et dolore magna aliqua enim ad minim veniam quis.',
     },
     {
       lines: ['…I made you a website.'],
-      body: 'Because of course I did.',
+      body: 'Nostrud exercitation ullamco laboris nisi aliquip ex ea commodo.',
       cta: { to: 'website', label: 'Keep reading' },
     },
   ],
@@ -218,15 +218,15 @@ export const STORY = {
   website: [
     {
       lines: ['So I built one.'],
-      body: 'Late nights, too much CSS, and one very large question at the bottom of it.',
+      body: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit ut labore.',
     },
     {
       lines: ['And somehow…'],
-      body: 'You opened it. You scrolled. You didn’t close the tab.',
+      body: 'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum.',
     },
     {
       lines: ['You said yes.'],
-      body: 'And then the world kept going, but everything in it had changed.',
+      body: 'Excepteur sint occaecat cupidatat non proident sunt in culpa officia.',
     },
   ],
 
@@ -245,21 +245,21 @@ export const STORY = {
     { lines: ['…make me want to be better without ever asking me to be.'], body: null },
     {
       lines: ['All of that is you.'],
-      body: 'And I get to keep it. That is still the part I can’t get used to.',
+      body: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit ut labore.',
     },
   ],
 
   gift: [
     {
-      lines: ['I made all of this because I wanted to give you something…'],
+      lines: ['Lorem ipsum dolor sit amet, consectetur adipiscing elit…'],
       body: null,
     },
     {
-      lines: ['…that exists only because you exist in my life.'],
+      lines: ['…sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'],
       body: null,
     },
     {
-      lines: ['And this is for you.'],
+      lines: ['Ut enim ad minim veniam, quis nostrud exercitation.'],
       body: null,
     },
   ],
@@ -267,39 +267,39 @@ export const STORY = {
 
 export const MEMORIES = [
   {
-    caption: 'This.',
-    note: 'Drop the photo into src/assets/memories/ and set src.',
+    caption: 'Lorem ipsum dolor sit amet.',
+    note: 'Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.',
     src: null,
   },
   {
-    caption: 'This stupid conversation.',
-    note: 'The one you still have open somewhere.',
+    caption: 'Ut enim ad minim veniam.',
+    note: 'Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
     src: null,
   },
   {
-    caption: 'This day.',
-    note: 'Nothing happened. That is why it matters.',
+    caption: 'Duis aute irure dolor in reprehenderit.',
+    note: 'In voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
     src: null,
   },
   {
-    caption: 'This moment I still remember.',
-    note: 'You probably have no idea which one.',
+    caption: 'Excepteur sint occaecat cupidatat non proident.',
+    note: 'Sunt in culpa qui officia deserunt mollit anim id est laborum.',
     src: null,
   },
 ]
 
 export const OLD_SITE = {
   url: 'something-i-made-for-you.com',
-  lines: ['I wrote it down', 'because I could not say it', 'out loud.'],
-  question: 'will you be my girlfriend?',
+  lines: ['Lorem ipsum dolor sit amet.', 'Consectetur adipiscing elit.', 'Sed do eiusmod tempor incididunt.'],
+  question: 'Lorem ipsum dolor sit amet?',
   cta: 'yes',
   alt: 'no',
 }
 
 export const GIFT = {
   kicker: 'The gift',
-  title: 'Something that only exists because of you',
-  body: 'Replace this with the real gift — a letter, a photo, a playlist, an app. Anything that makes them laugh or cry a little.',
+  title: 'Lorem ipsum dolor sit amet',
+  body: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
   ctaLabel: 'Open your gift',
   href: null,
   signature: '— yours',

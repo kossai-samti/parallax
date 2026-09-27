@@ -61,9 +61,17 @@ function build(tl, root) {
   tl.to([leftHand, rightHand],
     { y: () => -window.innerHeight * 0.85, opacity: 0, duration: 0.11, ease: 'power2.in', immediateRender: false }, 0.88)
 
-  // Moon exits on its own pace — slightly later, slightly slower.
+  // Moon exits upward on its own pace — slightly later, slightly slower.
   tl.to(moon,
     { y: () => -window.innerHeight * 1.1, opacity: 0, duration: 0.14, ease: 'power1.in', immediateRender: false }, 0.91)
+
+  // Statue / Angel drops downwards out of view at the handoff.
+  tl.to(angel,
+    { y: () => window.innerHeight * 0.55, opacity: 0, duration: 0.12, ease: 'power2.in', immediateRender: false }, 0.88)
+
+  // Hill drops downwards out of view slightly desynced from the statue.
+  tl.to(hill,
+    { y: () => window.innerHeight * 0.45, opacity: 0, duration: 0.14, ease: 'sine.in', immediateRender: false }, 0.89)
 }
 
 export function Everything() {

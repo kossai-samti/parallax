@@ -1,4 +1,4 @@
-import { CHAPTERS, MEMORIES, STORY } from '../content/story'
+import { CHAPTERS, MEMORIES } from '../content/story'
 import { Chapter, Panel } from '../components/Chapter'
 import { Cat } from '../components/art/creatures'
 import { Particles } from '../components/art/scenery'
@@ -46,8 +46,6 @@ function Memory({ item, index }) {
 }
 
 export function Us() {
-  const intro = STORY.us[0]
-
   return (
     <Chapter
       chapter={CHAPTERS[4]}
@@ -57,10 +55,10 @@ export function Us() {
       panels={[
         <Panel key="intro" className="panel--center">
           <h2 className="panel__line" data-reveal>
-            {intro.lines[0]}
+            'Lorem ipsum dolor sit amet.'
           </h2>
           <p className="panel__body" data-reveal>
-            {intro.body}
+            'Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
           </p>
         </Panel>,
         ...MEMORIES.map((item, i) => <Memory item={item} index={i} key={item.caption} />),
