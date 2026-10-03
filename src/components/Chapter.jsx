@@ -13,6 +13,7 @@ export function Chapter({
   children,
   panels = [],
   customPanels = false,
+  panelOptions,
   intro = false,
   className = '',
   scrollEnd = 'bottom bottom',
@@ -44,7 +45,10 @@ export function Chapter({
     }
 
     if (!customPanels) {
-      animatePanels(tl, root.querySelectorAll('[data-panel]'), { staticFirst: intro })
+      animatePanels(tl, root.querySelectorAll('[data-panel]'), {
+        staticFirst: intro,
+        ...panelOptions,
+      })
     }
 
     if (timeline) timeline(tl, root)

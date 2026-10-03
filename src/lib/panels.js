@@ -1,7 +1,7 @@
 import { gsap } from 'gsap'
 
 export function animatePanels(tl, els, opts = {}) {
-  const { inner = true, rise = 44, exit = true, staticFirst = false, each } = opts
+  const { inner = true, rise = 44, exit = true, staticFirst = false, firstHold = 0, each } = opts
   const list = [...els]
   const seg = 1 / Math.max(list.length, 1)
 
@@ -44,7 +44,8 @@ export function animatePanels(tl, els, opts = {}) {
     )
 
     if (exit && i < list.length - 1) {
-      tl.to(el, { opacity: 0, y: -rise * 0.7, duration: seg * 0.3, ease: 'power1.in' }, at + seg * 0.7)
+      const exitAt = i === 0 && firstHold > 0 ? firstHold : at + seg * 0.7
+      tl.to(el, { opacity: 0, y: -rise * 0.7, duration: seg * 0.3, ease: 'power1.in' }, exitAt)
     }
 
     if (each) each(tl, el, i, at, seg)

@@ -10,7 +10,7 @@ export const prefersReducedMotion = () =>
 
 let instance = null
 
-export function initSmoothScroll() {
+export function initSmoothScroll(onScrollStart) {
   if (prefersReducedMotion() || instance) return () => {}
 
   instance = new Lenis({
@@ -20,7 +20,10 @@ export function initSmoothScroll() {
     smoothWheel: true,
   })
 
-  const onScroll = () => ScrollTrigger.update()
+  const onScroll = () => {
+    onScrollStart?.()
+    ScrollTrigger.update()
+  }
   const onTick = (time) => instance.raf(time * 1000)
 
   instance.on('scroll', onScroll)

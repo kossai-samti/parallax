@@ -24,12 +24,19 @@ import ch3PadTwo from '../assets/Chapter3/lily-pad2.png'
 
 import ch4Wall from '../assets/Chapter4/wall-04-neon.jpg'
 
+import ch5Wall from '../assets/Chapter5/wall-05-night.png'
+import ch5Clouds from '../assets/Chapter5/clouds.png'
+import ch5LeftKitten from '../assets/Chapter5/kitten-left.png'
+import ch5RightKitten from '../assets/Chapter5/kitten-right.png'
+
 import ch6Wall from '../assets/Chapter6/wall-06-violet.jpg'
 import ch6Hill from '../assets/Chapter6/hill.png'
 import ch6Angel from '../assets/Chapter6/angel.png'
 import ch6Moon from '../assets/Chapter6/moon-purple.png'
 import ch6LeftHand from '../assets/Chapter6/left-hand.png'
 import ch6RightHand from '../assets/Chapter6/right-hand.png'
+
+import ch7Wall from '../assets/Chapter7/wall-07-rose.jpg'
 
 export const ART = {
   1: {
@@ -60,6 +67,12 @@ export const ART = {
   4: {
     wall: ch4Wall,
   },
+  5: {
+    wall: ch5Wall,
+    clouds: ch5Clouds,
+    leftKitten: ch5LeftKitten,
+    rightKitten: ch5RightKitten,
+  },
   6: {
     wall: ch6Wall,
     hill: ch6Hill,
@@ -67,6 +80,9 @@ export const ART = {
     moon: ch6Moon,
     leftHand: ch6LeftHand,
     rightHand: ch6RightHand,
+  },
+  7: {
+    wall: ch7Wall,
   },
 }
 

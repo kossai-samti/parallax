@@ -18,6 +18,47 @@
   box-shadow: 0 0 12px var(--story-accent);
 }
 
+.scene-progress {
+  position: fixed;
+  top: 50%;
+  left: clamp(12px, 2vw, 30px);
+  z-index: var(--z-chrome);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transform: translateY(-50%);
+  color: var(--story-text);
+  opacity: 0.72;
+}
+
+.scene-progress__track {
+  position: relative;
+  display: block;
+  width: 3px;
+  height: clamp(100px, 24vh, 180px);
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.16);
+  box-shadow: 0 0 12px rgba(255, 255, 255, 0.08);
+}
+
+.scene-progress__fill {
+  position: absolute;
+  inset: 0;
+  display: block;
+  background: var(--scene-meter-color);
+  box-shadow: 0 0 12px var(--scene-meter-glow), 0 0 22px var(--scene-meter-glow);
+  transform: scaleY(0);
+  transform-origin: 50% 0;
+}
+
+.scene-progress__label {
+  writing-mode: vertical-rl;
+  font-family: var(--font-mono);
+  font-size: 0.55rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
 .rail {
   position: fixed;
   top: 50%;

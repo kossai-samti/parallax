@@ -1,4 +1,10 @@
-﻿export const SENDER = 'M'
+﻿import memoryOne from '../assets/memories/memory1.jpg'
+import memoryTwo from '../assets/memories/memory2.jpg'
+import memoryThree from '../assets/memories/memory3.jpg'
+import memoryFour from '../assets/memories/memory4.jpg'
+import memoryFive from '../assets/memories/memory5.jpg'
+
+export const SENDER = 'M'
 export const RECEIVER = 'You'
 
 const bat = {
@@ -92,7 +98,7 @@ export const CHAPTERS = [
     icon: 'bat',
     emoji: '🦇',
     label: 'The first time I met you',
-    title: 'Before you became\nsomeone I loved',
+    title: 'Before I love your Mother',
     world: 'gothic night',
     palette: bat,
     units: 5,
@@ -114,7 +120,7 @@ export const CHAPTERS = [
     icon: 'frog',
     emoji: '🐸',
     label: 'The moment I decided to ask you',
-    title: 'So… I had an idea',
+    title: 'So… I man up',
     world: 'playful pond',
     palette: frog,
     units: 5,
@@ -169,97 +175,96 @@ export const STORY = {
   'first-meeting': [
     {
       kicker: 'Chapter one',
-      lines: ['Before you became someone I loved…'],
-      body: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+      lines: ['Before I love your Mother...'],
+      body: 'To be honest, I always try to remember how I fell in love with you for the first time.',
     },
     {
       kicker: 'And then',
-      lines: ['It was an ordinary day.'],
-      body: 'Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+      lines: ['But I simply can\'t.'],
+      body: 'And it\'s not because I\'ve forgotten. It is just I can\'t remember how my life was without YOU.',
     },
     {
       kicker: null,
-      lines: ['I had no idea what was starting.'],
-      body: 'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.',
+      lines: ['But still, I was able to retrieve glimpses from the past.'],
+      body: 'And remember how all of this began. You were the only thing I wanted in that GC, every message I wrote, every "nigga" I wrote, I was hoping YOU were going to see every one of them.',
     },
   ],
 
   falling: [
     {
       lines: ['I don’t know exactly when it happened.'],
-      body: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam.',
+      body: 'But it did happen and I became a lover before becoming a boyfriend.',
     },
     {
-      lines: ['At some point, talking to you stopped feeling ordinary.'],
-      body: 'Quis ipsum suspendisse ultrices gravida risus commodo viverra.',
+      lines: ['Your jokes, your humor, your kindness.'],
+      body: 'The brightness you brought every time you appeared made you rent-free in my heart. In this case, your heart, that mf isn\'t mine anymore.',
     },
     {
-      lines: ['And I realized I was starting to fall for you.'],
-      body: 'Duis aute irure dolor in reprehenderit in voluptate velit esse.',
+      lines: ['It\'d be cheesy if I said I didn\'t start loving you.'],
+      body: 'Or realized I\'m in love with you because I was in love with you without even meeting YOU. But to be honest, it is what it is. I swear to God, I am pretty sure I\'ve been in love with YOU since before I was a nut in my dad\'s balls.',
     },
   ],
 
   idea: [
     {
-      lines: ['Eventually, I realized I couldn’t keep this to myself.'],
-      body: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit sed posuere.',
+      lines: ['Eventually, I realized I couldn’t keep this to myself or keep waiting any longer.'],
+      body: 'But I wasn\'t sure how to tell you..',
     },
     {
-      lines: ['So obviously…'],
-      body: 'Ut labore et dolore magna aliqua enim ad minim veniam quis.',
+      lines: ['Like I was pretty sure you were gonna reject.'],
+      body: 'Or like I don\'t know, leak me to reddit to become the next 2 months meme.',
     },
     {
-      lines: ['…I made you a website.'],
-      body: 'Nostrud exercitation ullamco laboris nisi aliquip ex ea commodo.',
-      cta: { to: 'website', label: 'Keep reading' },
+      lines: ['But..'],
+      body: 'With the help of fish, and man-ing up, I knew that I must tell you even if you were gonna reject me.',
     },
   ],
 
   website: [
     {
-      lines: ['So I built one.'],
-      body: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit ut labore.',
+      lines: ['So..'],
+      body: 'In just a short time, I came up with this great idea (3 busy days) to create you a website.',
     },
     {
-      lines: ['And somehow…'],
-      body: 'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum.',
+      lines: ['So I did my best tbh.'],
+      body: 'And I was still having my doubts that YOU\'d reject me. But..',
     },
     {
-      lines: ['You said yes.'],
-      body: 'Excepteur sint occaecat cupidatat non proident sunt in culpa officia.',
+      lines: ['Boooo hoooo YOU DIDNTTTT!!!!!!!!!.'],
+      body: 'And to be honest.. Till this day I just can\'t believe, I have you, you are mine, you are MY girl, bcz you are literally everything I want.',
     },
   ],
 
   us: [
     {
       lines: ['And then you became part of my everyday life.'],
-      body: 'Not a chapter. Just… Tuesday. And every other day after it.',
+      body: 'A part I don\'t know how I can live without, and I don\'t wanna know tbh.',
     },
   ],
 
   love: [
-    { lines: ['I love the way you…'], body: null },
-    { lines: ['…make ordinary things interesting.'], body: null },
-    { lines: ['…get excited about the things you love.'], body: null },
-    { lines: ['…are completely yourself.'], body: null },
-    { lines: ['…make me want to be better without ever asking me to be.'], body: null },
+    { lines: ['I love You.'], body: null },
+    { lines: ['I love your Laugh, your Voice, Your browned like-honey eyes.'], body: null },
+    { lines: ['Your hands, Your nails, Your longggg hairr, Your lips, Your everything.'], body: null },
+    { lines: ['I love your Kindness, I love your jokes.'], body: null },
+    { lines: ['I love myself cz I managed to have You.'], body: null },
     {
-      lines: ['All of that is you.'],
-      body: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit ut labore.',
+      lines: ['I love every tiny thing about you, except for your boobs ofc they aint tiny.'],
+      body: 'Everything about you is literally perfection, and for some reason my eyes were able to see a glimpse of your perfection. I really love you so much. And I\'m really in Love with everything about you.',
     },
   ],
 
   gift: [
     {
-      lines: ['Lorem ipsum dolor sit amet, consectetur adipiscing elit…'],
+      lines: ['I know this is not the best gift a bf could give to his girl…'],
       body: null,
     },
     {
-      lines: ['…sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'],
+      lines: ['But this long ass distance chained my ass, aswell as Tuna.'],
       body: null,
     },
     {
-      lines: ['Ut enim ad minim veniam, quis nostrud exercitation.'],
+      lines: ['Thats why I did my best to make this one special to you, by making it only an introduction of your real gift.'],
       body: null,
     },
   ],
@@ -267,39 +272,44 @@ export const STORY = {
 
 export const MEMORIES = [
   {
-    caption: 'Lorem ipsum dolor sit amet.',
-    note: 'Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.',
-    src: null,
+    caption: 'could be ussss',
+    note: null,
+    src: memoryOne,
   },
   {
-    caption: 'Ut enim ad minim veniam.',
-    note: 'Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
-    src: null,
+    caption: 'could be ussss',
+    note: null,
+    src: memoryTwo,
   },
   {
-    caption: 'Duis aute irure dolor in reprehenderit.',
-    note: 'In voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
-    src: null,
+    caption: 'could be ussss',
+    note: null,
+    src: memoryThree,
   },
   {
-    caption: 'Excepteur sint occaecat cupidatat non proident.',
-    note: 'Sunt in culpa qui officia deserunt mollit anim id est laborum.',
-    src: null,
+    caption: 'could be ussss',
+    note: null,
+    src: memoryFour,
+  },
+  {
+    caption: 'could be ussss',
+    note: null,
+    src: memoryFive,
   },
 ]
 
 export const OLD_SITE = {
   url: 'something-i-made-for-you.com',
-  lines: ['Lorem ipsum dolor sit amet.', 'Consectetur adipiscing elit.', 'Sed do eiusmod tempor incididunt.'],
-  question: 'Lorem ipsum dolor sit amet?',
+  lines: ['Something I made for you.', 'Because you are everything I want.', 'Will you be my girl?'],
+  question: 'Will you say yes?',
   cta: 'yes',
   alt: 'no',
 }
 
 export const GIFT = {
   kicker: 'The gift',
-  title: 'Lorem ipsum dolor sit amet',
-  body: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+  title: 'The real gift.',
+  body: 'Erm so yea I didnt only create a website, I\'ve actually created something for you, I dont wanna spoil it to you, so yea here is your gift.',
   ctaLabel: 'Open your gift',
   href: null,
   signature: '— yours',

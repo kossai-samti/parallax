@@ -125,9 +125,21 @@
   filter: none;
 }
 
+/* Chapter 5 has its own night-sky composition with clouds and kittens. */
+.world[data-chapter='5'] .world__halo,
+.world[data-chapter='5'] .world__celestial {
+  display: none;
+}
+
 /* Chapter 6 has its own illustrated moon in the foreground composition. */
 .world[data-chapter='6'] .world__halo,
 .world[data-chapter='6'] .world__celestial {
+  display: none;
+}
+
+/* Chapter 7 has its own heart artwork in the rose scene. */
+.world[data-chapter='7'] .world__halo,
+.world[data-chapter='7'] .world__celestial {
   display: none;
 }
 
