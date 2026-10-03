@@ -333,7 +333,7 @@ export function GiftReveal({ open, onClose }) {
             rel="noreferrer"
             data-rise
           >
-            {GIFT.ctaLabel}
+            {GIFT.linkLabel}
           </a>
         ) : (
           <p className="gift__hint" data-rise>

@@ -1134,12 +1134,41 @@
 
 .chapter--cats .panel--us-copy {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-  gap: clamp(2rem, 8vw, 9rem);
-  width: min(76rem, 100%);
+  grid-template-columns: minmax(0, 1fr) minmax(18rem, 30rem) minmax(0, 1fr);
+  gap: clamp(2rem, 5vw, 6rem);
+  width: min(100rem, 100%);
   max-width: none;
   align-items: center;
   text-align: left;
+}
+
+.chapter--cats .panel--us-copy > [data-reveal] {
+  display: contents;
+}
+
+.chapter--cats .us-copy__side {
+  position: relative;
+  align-self: start;
+  transform: translateY(-18vh);
+}
+
+.chapter--cats .us-copy__side--left {
+  grid-column: 1;
+  padding-right: clamp(1rem, 2vw, 2rem);
+}
+
+.chapter--cats .us-copy__side--right {
+  display: none;
+}
+
+.chapter--cats .us-copy__eyebrow {
+  display: block;
+  margin-bottom: 1rem;
+  color: #626875;
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
 }
 
 .chapter--cats .panel--us-copy .panel__line {
@@ -1157,6 +1186,14 @@
     grid-template-columns: 1fr;
     gap: 1rem;
     text-align: center;
+  }
+
+  .chapter--cats .us-copy__side--left,
+  .chapter--cats .us-copy__side--right {
+    grid-column: 1;
+    padding: 0;
+    border-left: 0;
+    transform: none;
   }
 
   .chapter--cats .panel--us-copy .panel__body {
@@ -1320,12 +1357,18 @@
 }
 
 .chapter--love .panel--first .panel__line {
-  font-size: clamp(5rem, 17vw, 15rem);
+  font-size: clamp(3.5rem, 11vw, 12rem);
   line-height: 0.9;
   max-width: none;
   text-wrap: nowrap;
   color: var(--story-text);
   text-shadow: 0 0 34px var(--story-accent), 0 2px 18px var(--sky-low);
+}
+
+.chapter--love .panel--first {
+  width: 100%;
+  max-width: none;
+  overflow: visible;
 }
 
 /* 07 â€” rose */
@@ -1601,23 +1644,20 @@
 }
 
 .gift__cta {
-  display: inline-flex;
-  align-items: center;
+  display: inline-block;
   margin-top: 1.8rem;
-  padding: 1rem 2.1rem;
-  border-radius: 999px;
-  font-size: 0.8rem;
-  letter-spacing: 0.26em;
-  text-transform: uppercase;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.14em;
   text-decoration: none;
-  color: #2a0512;
-  background: linear-gradient(120deg, #ffd7e6, #ff8ab5 60%, #ff5c9a);
-  box-shadow: 0 20px 60px -18px rgba(255, 92, 154, 0.9);
-  transition: transform 0.5s var(--ease);
+  color: #ffd7e6;
+  border-bottom: 1px solid currentColor;
+  transition: color 0.25s var(--ease), border-color 0.25s var(--ease);
 }
 
 .gift__cta:hover {
-  transform: translateY(-3px);
+  color: #ffffff;
+  border-color: #ffffff;
 }
 
 .gift__hint {

@@ -1,19 +1,23 @@
 import { gsap } from 'gsap'
 
 export function animatePanels(tl, els, opts = {}) {
-  const { inner = true, rise = 44, exit = true, staticFirst = false, firstHold = 0, each } = opts
+  const { inner = true, rise = 44, exit = true, staticFirst = false, startAt = 0, firstHold = 0, each } = opts
   const list = [...els]
-  const seg = 1 / Math.max(list.length, 1)
+  const seg = (1 - startAt) / Math.max(list.length, 1)
+  const laterSeg = firstHold > 0 && list.length > 1 ? (1 - startAt - firstHold) / (list.length - 1) : seg
 
   list.forEach((el, i) => {
-    const at = i * seg
+    const at = firstHold > 0 && i > 0
+      ? startAt + firstHold + (i - 1) * laterSeg
+      : startAt + i * seg
+    const panelSeg = firstHold > 0 && i === 0 ? firstHold : laterSeg
 
     if (staticFirst && i === 0) {
       gsap.set(el, { opacity: 1 })
       if (exit && list.length > 1) {
-        tl.to(el, { opacity: 0, y: -rise * 0.7, duration: seg * 0.3, ease: 'power1.in' }, at + seg * 0.7)
+        tl.to(el, { opacity: 0, y: -rise * 0.7, duration: panelSeg * 0.3, ease: 'power1.in' }, at + panelSeg * 0.7)
       }
-      if (each) each(tl, el, i, at, seg)
+      if (each) each(tl, el, i, at, panelSeg)
       return
     }
 
@@ -27,7 +31,7 @@ export function animatePanels(tl, els, opts = {}) {
             opacity: 1,
             yPercent: 0,
             clipPath: 'inset(0 0 -12% 0)',
-            duration: seg * 0.3,
+            duration: panelSeg * 0.3,
             ease: 'power2.out',
             immediateRender: false,
           },
@@ -39,16 +43,16 @@ export function animatePanels(tl, els, opts = {}) {
     tl.fromTo(
       el,
       { opacity: 0, y: rise },
-      { opacity: 1, y: 0, duration: seg * 0.3, ease: 'power2.out', immediateRender: false },
+      { opacity: 1, y: 0, duration: panelSeg * 0.3, ease: 'power2.out', immediateRender: false },
       at,
     )
 
     if (exit && i < list.length - 1) {
-      const exitAt = i === 0 && firstHold > 0 ? firstHold : at + seg * 0.7
-      tl.to(el, { opacity: 0, y: -rise * 0.7, duration: seg * 0.3, ease: 'power1.in' }, exitAt)
+      const exitAt = at + panelSeg * 0.7
+      tl.to(el, { opacity: 0, y: -rise * 0.7, duration: panelSeg * 0.3, ease: 'power1.in' }, exitAt)
     }
 
-    if (each) each(tl, el, i, at, seg)
+    if (each) each(tl, el, i, at, panelSeg)
   })
 
   return seg

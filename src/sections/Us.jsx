@@ -2,16 +2,24 @@ import { CHAPTERS, MEMORIES } from "../content/story";
 import { gsap } from "gsap";
 import { Chapter, Panel } from "../components/Chapter";
 import { Particles } from "../components/art/scenery";
-import { animatePanels } from "../lib/panels";
 import { ART } from "../lib/assets";
 
 const CH5 = ART[5];
+const US_COPY = [
+  "And then you became part of my everyday life.",
+  "A part I don't know how i can live without.",
+  "And I don't wanna know tbh",
+  "So, This could be us, na na",
+  "This is US",
+];
 
 function build(tl, root) {
   const clouds = root.querySelector(".ch-cats-clouds");
   const leftKitten = root.querySelector(".ch-cat--left");
   const rightKitten = root.querySelector(".ch-cat--right");
   const memories = root.querySelectorAll(".memory");
+  const copyPanels = root.querySelectorAll(".panel--us-copy");
+  const phase = 1 / Math.max(memories.length, 1);
 
   tl.fromTo(
     clouds,
@@ -91,31 +99,54 @@ function build(tl, root) {
     0.42,
   );
 
-  animatePanels(
-    tl,
-    [
-      ...root.querySelectorAll("[data-panel]"),
-      ...root.querySelectorAll(".memory"),
-    ],
-    {
-      inner: true,
-      each: (t, el, i, at, seg) => {
-        if (!el.classList.contains("memory")) return;
-        const tilt = i % 2 === 0 ? -1.1 : 1.1;
-        t.fromTo(
-          el,
-          { rotate: tilt * 2.4 },
-          {
-            rotate: tilt,
-            duration: seg * 0.3,
-            ease: "power2.out",
-            immediateRender: false,
-          },
-          at,
+  memories.forEach((memory, i) => {
+    const at = i * phase;
+    const tilt = i % 2 === 0 ? -1.1 : 1.1;
+    const copy = copyPanels[i];
+
+    if (copy) {
+      tl.fromTo(
+        copy,
+        { opacity: 0, y: 34 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: phase * 0.24,
+          ease: "power2.out",
+          immediateRender: false,
+        },
+        at,
+      );
+      if (i < copyPanels.length - 1) {
+        tl.to(
+          copy,
+          { opacity: 0, y: -24, duration: phase * 0.18, ease: "power1.in" },
+          at + phase * 0.76,
         );
+      }
+    }
+
+    tl.fromTo(
+      memory,
+      { opacity: 0, y: 44, rotate: tilt * 2.4 },
+      {
+        opacity: 1,
+        y: 0,
+        rotate: tilt,
+        duration: phase * 0.24,
+        ease: "power2.out",
+        immediateRender: false,
       },
-    },
-  );
+      at + phase * 0.12,
+    );
+    if (i < memories.length - 1) {
+      tl.to(
+        memory,
+        { opacity: 0, y: -34, duration: phase * 0.18, ease: "power1.in" },
+        at + phase * 0.76,
+      );
+    }
+  });
 
   const exit = gsap.timeline({
     scrollTrigger: {
@@ -198,14 +229,16 @@ export function Us() {
       timeline={build}
       customPanels
       panels={[
-        <Panel key="intro" className="panel--us-copy">
-          <div className="us-copy__side us-copy__side--left" data-reveal>
-            <h2 className="panel__line">And then you became part of my everyday life.</h2>
-          </div>
-          <div className="us-copy__side us-copy__side--right" data-reveal>
-            <p className="panel__body">A part I don&apos;t know how I can live without, and I don&apos;t wanna know tbh.</p>
-          </div>
-        </Panel>,
+        ...US_COPY.map((copy, i) => (
+          <Panel key={`copy-${i}`} className="panel--us-copy">
+            <div className="us-copy__side us-copy__side--left">
+              <span className="us-copy__eyebrow">
+                Us / {String(i + 1).padStart(2, "0")}
+              </span>
+              <h2 className="panel__line">{copy}</h2>
+            </div>
+          </Panel>
+        )),
         ...MEMORIES.map((item, i) => (
           <Memory item={item} index={i} key={item.caption} />
         )),

@@ -24,7 +24,6 @@ gsap.registerPlugin(ScrollTrigger);
 const IDS = CHAPTERS.map((c) => c.id);
 const START_VOLUME = 0.08;
 const FULL_VOLUME = 1;
-const START_DELAY_MS = 0;
 const START_FADE_MS = 4000;
 const VOLUME_RAMP_MS = 1800;
 
@@ -40,8 +39,9 @@ export default function App() {
     const audio = new Audio(themeSong);
     audio.loop = true;
     audio.volume = 0;
+    audio.muted = true;
     audioRef.current = audio;
-    const interactionEvents = ["pointerdown", "touchstart", "click", "keydown"];
+    const interactionEvents = ["pointerdown", "touchstart", "keydown", "wheel"];
 
     const fadeIn = () => {
       const startedAt = performance.now();
@@ -58,33 +58,35 @@ export default function App() {
     };
 
     const startAudio = (fromUserGesture = false) => {
-      if (audioStartedRef.current) return;
+      if (audioStartedRef.current) {
+        if (fromUserGesture) {
+          audio.muted = false;
+          audio.play().catch(() => {});
+        }
+        return;
+      }
       if (audio.currentTime < 15) audio.currentTime = 15;
-      audio.muted = !fromUserGesture;
+      if (fromUserGesture) audio.muted = false;
       audio
         .play()
         .then(() => {
           audio.muted = false;
           audioStartedRef.current = true;
-          interactionEvents.forEach((event) =>
-            window.removeEventListener(event, startFromGesture),
-          );
           fadeIn();
         })
         .catch(() => {
-          audio.muted = false;
+          audio.muted = true;
         });
     };
-    const startFromGesture = () => startAudio(true);
+    const startFromInteraction = () => startAudio(true);
     interactionEvents.forEach((event) =>
-      window.addEventListener(event, startFromGesture, { passive: true }),
+      window.addEventListener(event, startFromInteraction, { passive: true }),
     );
-    const startTimer = window.setTimeout(startAudio, START_DELAY_MS);
+    startAudio();
 
     return () => {
-      window.clearTimeout(startTimer);
       interactionEvents.forEach((event) =>
-        window.removeEventListener(event, startFromGesture),
+        window.removeEventListener(event, startFromInteraction),
       );
       window.cancelAnimationFrame(volumeFrame.current);
       audio.pause();

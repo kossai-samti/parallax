@@ -260,7 +260,7 @@ export const STORY = {
       body: null,
     },
     {
-      lines: ['But this long ass distance chained my ass, aswell as Tuna.'],
+      lines: ['But this long ass distance chained my ass, Tuna has done the same.'],
       body: null,
     },
     {
@@ -311,6 +311,7 @@ export const GIFT = {
   title: 'The real gift.',
   body: 'Erm so yea I didnt only create a website, I\'ve actually created something for you, I dont wanna spoil it to you, so yea here is your gift.',
   ctaLabel: 'Open your gift',
-  href: null,
+  linkLabel: 'Click me',
+  href: 'https://www.youtube.com/watch?v=cSQTZoZPJzs&list=PLN1LPImPw_PlDRy10sDskVGszKZcbXaDn&index=2',
   signature: '— yours',
 }
