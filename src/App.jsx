@@ -41,7 +41,14 @@ export default function App() {
     audio.volume = 0;
     audio.muted = true;
     audioRef.current = audio;
-    const interactionEvents = ["pointerdown", "touchstart", "keydown", "wheel"];
+    const interactionEvents = [
+      "pointerdown",
+      "touchstart",
+      "touchend",
+      "click",
+      "keydown",
+      "wheel",
+    ];
 
     const fadeIn = () => {
       const startedAt = performance.now();
