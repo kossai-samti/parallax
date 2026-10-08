@@ -199,23 +199,27 @@ export function Everything() {
       <div className="ch-love-entry" aria-hidden="true" />
 
       {/* Hill and angel are siblings so GSAP can drive them at different speeds */}
-      <img className="ch-love-hill" src={CH6.hill} alt="" aria-hidden="true" />
+      <img className="ch-love-hill" src={CH6.hill} alt="" aria-hidden="true" loading="lazy" decoding="async" />
       <div className="ch-love-angel-wrap" aria-hidden="true">
-        <img className="ch-love-angel" src={CH6.angel} alt="" />
+        <img className="ch-love-angel" src={CH6.angel} alt="" loading="lazy" decoding="async" />
       </div>
 
-      <img className="ch-love-moon" src={CH6.moon} alt="" aria-hidden="true" />
+      <img className="ch-love-moon" src={CH6.moon} alt="" aria-hidden="true" loading="lazy" decoding="async" />
       <img
         className="ch-touch-hand ch-touch-hand--left"
         src={CH6.leftHand}
         alt=""
         aria-hidden="true"
+        loading="lazy"
+        decoding="async"
       />
       <img
         className="ch-touch-hand ch-touch-hand--right"
         src={CH6.rightHand}
         alt=""
         aria-hidden="true"
+        loading="lazy"
+        decoding="async"
       />
     </Chapter>
   );

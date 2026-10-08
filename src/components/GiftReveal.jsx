@@ -273,13 +273,17 @@ export function GiftReveal({ open, onClose }) {
 
   return (
     <div
-      className="gift"
+      className={open ? "gift gift--open" : "gift"}
       ref={root}
       role="dialog"
       aria-modal="true"
       aria-hidden={!open}
       aria-label={GIFT.title}
-      style={{ "--gift-wallpaper": `url(${giftWallpaper})` }}
+      style={
+        open
+          ? { "--gift-wallpaper": "url(" + giftWallpaper + ")" }
+          : undefined
+      }
     >
       <div className="gift__falling" aria-hidden="true">
         {FALLING_ART.map(
@@ -289,6 +293,8 @@ export function GiftReveal({ open, onClose }) {
               className={`gift__falling-art ${className}`}
               src={src}
               alt=""
+              loading="lazy"
+              decoding="async"
               style={{
                 "--fall-left": left,
                 "--fall-size": size,

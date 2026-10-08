@@ -185,14 +185,18 @@ export function Gift({ onOpen }) {
           className="ch-gift-branch ch-gift-branch--left"
           src={leftBranch}
           alt=""
+          loading="lazy"
+          decoding="async"
         />
         <div className="ch-gift-heart-wrap">
-          <img className="ch-gift-heart" src={heartArtwork} alt="" />
+          <img className="ch-gift-heart" src={heartArtwork} alt="" loading="lazy" decoding="async" />
         </div>
         <img
           className="ch-gift-branch ch-gift-branch--right"
           src={rightBranch}
           alt=""
+          loading="lazy"
+          decoding="async"
         />
         <PetalRain />
       </div>

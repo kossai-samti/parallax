@@ -36,7 +36,9 @@ export default function App() {
   const audioStartedRef = useRef(false);
 
   useEffect(() => {
-    const audio = new Audio(themeSong);
+    const audio = document.createElement("audio");
+    audio.preload = "none";
+    audio.src = themeSong;
     audio.loop = true;
     audio.volume = 0;
     audio.muted = true;
@@ -89,8 +91,6 @@ export default function App() {
     interactionEvents.forEach((event) =>
       window.addEventListener(event, startFromInteraction, { passive: true }),
     );
-    startAudio();
-
     return () => {
       interactionEvents.forEach((event) =>
         window.removeEventListener(event, startFromInteraction),

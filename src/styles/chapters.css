@@ -8,6 +8,10 @@
   height: calc(var(--units, 5) * 100svh);
 }
 
+.chapter:not(.chapter--near) * {
+  animation-play-state: paused;
+}
+
 .chapter__stage {
   position: sticky;
   top: 0;
@@ -1565,6 +1569,11 @@
     var(--gift-wallpaper) center / cover no-repeat;
   background-color: #2a1647;
   overflow: auto;
+}
+
+.gift:not(.gift--open) .gift__falling-art,
+.gift:not(.gift--open) .gift__particles .particle {
+  animation-play-state: paused;
 }
 
 .gift__particles {

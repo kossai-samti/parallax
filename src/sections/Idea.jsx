@@ -90,13 +90,15 @@ export function Idea() {
           src={pad.src}
           alt=""
           aria-hidden="true"
+          loading="lazy"
+          decoding="async"
         />
       ))}
-      <img className="ch-lotus" src={CH3.body} alt="" aria-hidden="true" />
+      <img className="ch-lotus" src={CH3.body} alt="" aria-hidden="true" loading="lazy" decoding="async" />
       <div className="ch-frog-runner" aria-hidden="true">
         <span className="ch-frog-ripple ch-frog-ripple--near" />
         <span className="ch-frog-ripple ch-frog-ripple--far" />
-        <img className="ch-frog" src={CH3.frog} alt="" />
+        <img className="ch-frog" src={CH3.frog} alt="" loading="lazy" decoding="async" />
       </div>
       <Particles kind="spark" count={14} className="ch-sparks" />
     </Chapter>

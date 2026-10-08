@@ -1,4 +1,4 @@
-import { Children, useLayoutEffect } from "react";
+import { Children, useEffect, useLayoutEffect } from "react";
 import { gsap } from "gsap";
 import { useScrub } from "../lib/useScrub";
 import { registerSection } from "../lib/registry";
@@ -75,6 +75,21 @@ export function Chapter({
 
     tl.set({ _pad: 0 }, { _pad: 1, duration: 0 }, 1);
   }, scrollEnd);
+
+  useEffect(() => {
+    const root = ref.current;
+    const stage = root?.querySelector(".chapter__stage");
+    if (!root || !stage) return undefined;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        root.classList.toggle("chapter--near", entry.isIntersecting);
+      },
+      { rootMargin: "160px 0px" },
+    );
+    observer.observe(stage);
+    return () => observer.disconnect();
+  }, [ref]);
 
   useLayoutEffect(() => {
     if (!intro) return;

@@ -134,6 +134,9 @@ export function buildWorldTimeline(sections) {
     // Keep the lotus in its own image layer so it can crossfade with the
     // mandarin instead of replacing it in one shared slot.
     const body = idx + 1 === 3 ? null : bodyFor(idx + 1)
+    if (lotusImg && idx + 1 === 3 && !lotusImg.getAttribute('src')) {
+      lotusImg.src = bodyFor(3)
+    }
     // Keep a previous src loaded while hidden when a chapter has no art. Its
     // palette gradient then becomes the scene background without reusing ch1.
     if (wallImg && wall && wall !== wallImg.getAttribute('src')) wallImg.src = wall

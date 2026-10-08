@@ -3,7 +3,7 @@ import { Heart } from './creatures'
 
 const rand = (min, max) => min + Math.random() * (max - min)
 
-export function Stars({ count = 90 }) {
+export function Stars({ count = 64 }) {
   const stars = useMemo(
     () =>
       Array.from({ length: count }, () => ({

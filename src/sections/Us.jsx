@@ -217,7 +217,7 @@ function Memory({ item, index }) {
     <figure className="memory">
       <div className="memory__frame">
         {item.src ? (
-          <img src={item.src} alt={item.caption} loading="lazy" />
+          <img src={item.src} alt={item.caption} loading="lazy" decoding="async" />
         ) : (
           <div className="memory__empty">
             <span className="memory__slot">
@@ -269,9 +269,9 @@ export function Us() {
       </div>
       <Particles kind="dust" count={40} className="ch-motes" />
       <div className="ch-cats" aria-hidden="true">
-        <img className="ch-cats-clouds" src={CH5.clouds} alt="" />
-        <img className="ch-cat ch-cat--left" src={CH5.leftKitten} alt="" />
-        <img className="ch-cat ch-cat--right" src={CH5.rightKitten} alt="" />
+        <img className="ch-cats-clouds" src={CH5.clouds} alt="" loading="lazy" decoding="async" />
+        <img className="ch-cat ch-cat--left" src={CH5.leftKitten} alt="" loading="lazy" decoding="async" />
+        <img className="ch-cat ch-cat--right" src={CH5.rightKitten} alt="" loading="lazy" decoding="async" />
       </div>
     </Chapter>
   );

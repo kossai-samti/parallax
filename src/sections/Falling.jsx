@@ -102,11 +102,11 @@ export function Falling() {
       panels={<StoryPanels id="falling" />}
     >
       <div className="ch-floaters" aria-hidden="true">
-        <img className="ch-float ch-leaf ch-leaf--big" src={CH2.leaf} alt="" />
-        <img className="ch-float ch-leaf ch-leaf--small" src={CH2.leaf} alt="" />
-        <img className="ch-float ch-segment ch-segment--big" src={CH2.segment} alt="" />
-        <img className="ch-float ch-segment ch-segment--small" src={CH2.segment} alt="" />
-        <img className="ch-float ch-mandarin" src={CH2.mandarin} alt="" />
+        <img className="ch-float ch-leaf ch-leaf--big" src={CH2.leaf} alt="" loading="lazy" decoding="async" />
+        <img className="ch-float ch-leaf ch-leaf--small" src={CH2.leaf} alt="" loading="lazy" decoding="async" />
+        <img className="ch-float ch-segment ch-segment--big" src={CH2.segment} alt="" loading="lazy" decoding="async" />
+        <img className="ch-float ch-segment ch-segment--small" src={CH2.segment} alt="" loading="lazy" decoding="async" />
+        <img className="ch-float ch-mandarin" src={CH2.mandarin} alt="" loading="lazy" decoding="async" />
       </div>
       <Particles kind="petal" count={18} className="ch-petals" />
     </Chapter>

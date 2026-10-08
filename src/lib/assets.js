@@ -24,7 +24,7 @@ import ch3PadTwo from '../assets/Chapter3/lily-pad2.png'
 
 import ch4Wall from '../assets/Chapter4/wall-04-neon.jpg'
 
-import ch5Wall from '../assets/Chapter5/wall-05-night.png'
+import ch5Wall from '../assets/Chapter5/wall-05-night.jpg'
 import ch5Clouds from '../assets/Chapter5/clouds.png'
 import ch5LeftKitten from '../assets/Chapter5/kitten-left.png'
 import ch5RightKitten from '../assets/Chapter5/kitten-right.png'
