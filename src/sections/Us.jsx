@@ -18,8 +18,9 @@ function build(tl, root) {
   const leftKitten = root.querySelector(".ch-cat--left");
   const rightKitten = root.querySelector(".ch-cat--right");
   const memories = root.querySelectorAll(".memory");
-  const copyPanels = root.querySelectorAll(".panel--us-copy");
-  const phase = 1 / Math.max(memories.length, 1);
+  const copyPanels = root.querySelectorAll(".us-copy__panel");
+  const sequenceStart = 0.18;
+  const phase = (1 - sequenceStart) / Math.max(memories.length, 1);
 
   tl.fromTo(
     clouds,
@@ -100,9 +101,10 @@ function build(tl, root) {
   );
 
   memories.forEach((memory, i) => {
-    const at = i * phase;
+    const at = sequenceStart + i * phase;
     const tilt = i % 2 === 0 ? -1.1 : 1.1;
     const copy = copyPanels[i];
+    const copyY = i === 0 ? 0 : -56;
 
     if (copy) {
       tl.fromTo(
@@ -110,7 +112,7 @@ function build(tl, root) {
         { opacity: 0, y: 34 },
         {
           opacity: 1,
-          y: 0,
+          y: copyY,
           duration: phase * 0.24,
           ease: "power2.out",
           immediateRender: false,
@@ -120,7 +122,12 @@ function build(tl, root) {
       if (i < copyPanels.length - 1) {
         tl.to(
           copy,
-          { opacity: 0, y: -24, duration: phase * 0.18, ease: "power1.in" },
+          {
+            opacity: 0,
+            y: copyY - 24,
+            duration: phase * 0.18,
+            ease: "power1.in",
+          },
           at + phase * 0.76,
         );
       }
@@ -128,12 +135,16 @@ function build(tl, root) {
 
     tl.fromTo(
       memory,
-      { opacity: 0, y: 44, rotate: tilt * 2.4 },
+      {
+        opacity: 0,
+        y: () => window.innerHeight * 0.16,
+        rotate: tilt * 2.4,
+      },
       {
         opacity: 1,
         y: 0,
         rotate: tilt,
-        duration: phase * 0.24,
+        duration: phase * 0.3,
         ease: "power2.out",
         immediateRender: false,
       },
@@ -216,7 +227,9 @@ function Memory({ item, index }) {
           </div>
         )}
       </div>
-      <figcaption className="memory__caption">{item.caption}</figcaption>
+      {index < MEMORIES.length - 1 ? (
+        <figcaption className="memory__caption">{item.caption}</figcaption>
+      ) : null}
     </figure>
   );
 }
@@ -244,6 +257,16 @@ export function Us() {
         )),
       ]}
     >
+      <div className="us-copy-layer">
+        {US_COPY.map((copy, i) => (
+          <div className="us-copy__panel" key={copy}>
+            <span className="us-copy__eyebrow">
+              Us / {String(i + 1).padStart(2, "0")}
+            </span>
+            <h2 className="panel__line">{copy}</h2>
+          </div>
+        ))}
+      </div>
       <Particles kind="dust" count={40} className="ch-motes" />
       <div className="ch-cats" aria-hidden="true">
         <img className="ch-cats-clouds" src={CH5.clouds} alt="" />

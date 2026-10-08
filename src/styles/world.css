@@ -125,10 +125,22 @@
   filter: none;
 }
 
+.world[data-chapter='3'] .cel__art--lotus {
+  display: none;
+}
+
 /* Chapter 5 has its own night-sky composition with clouds and kittens. */
 .world[data-chapter='5'] .world__halo,
 .world[data-chapter='5'] .world__celestial {
   display: none;
+}
+
+.world[data-chapter='5']::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: rgba(34, 12, 58, 0.34);
 }
 
 /* Chapter 6 has its own illustrated moon in the foreground composition. */

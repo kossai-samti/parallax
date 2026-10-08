@@ -1,7 +1,7 @@
 import { gsap } from 'gsap'
 
 export function animatePanels(tl, els, opts = {}) {
-  const { inner = true, rise = 44, exit = true, staticFirst = false, startAt = 0, firstHold = 0, each } = opts
+  const { inner = true, rise = 44, enter = 0.3, exit = true, staticFirst = false, startAt = 0, firstHold = 0, each } = opts
   const list = [...els]
   const seg = (1 - startAt) / Math.max(list.length, 1)
   const laterSeg = firstHold > 0 && list.length > 1 ? (1 - startAt - firstHold) / (list.length - 1) : seg
@@ -31,7 +31,7 @@ export function animatePanels(tl, els, opts = {}) {
             opacity: 1,
             yPercent: 0,
             clipPath: 'inset(0 0 -12% 0)',
-            duration: panelSeg * 0.3,
+            duration: panelSeg * enter,
             ease: 'power2.out',
             immediateRender: false,
           },
@@ -43,7 +43,7 @@ export function animatePanels(tl, els, opts = {}) {
     tl.fromTo(
       el,
       { opacity: 0, y: rise },
-      { opacity: 1, y: 0, duration: panelSeg * 0.3, ease: 'power2.out', immediateRender: false },
+      { opacity: 1, y: 0, duration: panelSeg * enter, ease: 'power2.out', immediateRender: false },
       at,
     )
 

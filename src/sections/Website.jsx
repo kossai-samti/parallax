@@ -47,6 +47,7 @@ export function Website() {
       chapter={CHAPTERS[3]}
       className="chapter--monster"
       timeline={build}
+      panelOptions={{ rise: 120, enter: 0.52 }}
       panels={<StoryPanels id="website" />}
     >
       <MonsterCan />

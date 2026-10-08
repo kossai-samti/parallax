@@ -3,7 +3,6 @@ import { Chapter } from "../components/Chapter";
 import { StoryPanels } from "../components/StoryPanels";
 import { Particles } from "../components/art/scenery";
 import { ART } from "../lib/assets";
-import { worldRefs } from "../lib/registry";
 
 const CH3 = ART[3];
 const vh = () => window.innerHeight;
@@ -22,21 +21,22 @@ const PAD_FIELD = [
 ];
 
 function build(tl, root) {
-  const lotus = worldRefs.root?.querySelector("[data-cel-lotus]");
+  const lotus = root.querySelector(".ch-lotus");
   if (lotus) {
-    // Give the flower a gentle scroll float after it has crossfaded into view.
+    // Fade the flower in, then give it a gentle scroll float.
     tl.fromTo(
       lotus,
-      { y: 0, rotation: 0, scale: 1 },
+      { opacity: 0, y: 0, rotation: 0, scale: 0.9 },
       {
+        opacity: 1,
         y: -34,
         rotation: 6,
         scale: 1.1,
-        duration: 0.613,
+        duration: 0.48,
         ease: "sine.inOut",
         immediateRender: false,
       },
-      0.167,
+      0,
     );
   }
   const frogRunner = root.querySelector(".ch-frog-runner");
@@ -92,6 +92,7 @@ export function Idea() {
           aria-hidden="true"
         />
       ))}
+      <img className="ch-lotus" src={CH3.body} alt="" aria-hidden="true" />
       <div className="ch-frog-runner" aria-hidden="true">
         <span className="ch-frog-ripple ch-frog-ripple--near" />
         <span className="ch-frog-ripple ch-frog-ripple--far" />
